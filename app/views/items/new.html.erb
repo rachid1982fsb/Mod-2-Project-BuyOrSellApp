@@ -1,0 +1,22 @@
+<h1>Create New Listing</h1><br>
+<%= form_for @item do |f| %>
+    <%= f.label :location_id %><br>
+    <%= f.collection_select :location_id, Location.all, :id, :city_zipcode %> <br>
+    Product <%= f.label :name %>:<br>
+    <%= f.text_field :name %><br>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %><br>
+    <%= f.label :condition %><br>
+    <%=  f.select :condition, options_for_select([ "New", "Like New","Used","Fair","Poor" ])%><br>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %><br>
+    <%= f.label :address %><br>
+    <%= f.text_field :address, value: cookies[:address] %><br>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %><br>
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %><br>
+    <%= f.submit %>
+   <% end %>

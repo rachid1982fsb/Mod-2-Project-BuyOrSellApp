@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  item_id: MyString
+  date: 2019-11-11
+  note: MyString
+  Pickup_time: 2019-11-11 14:44:30
+
+two:
+  user_id: MyString
+  item_id: MyString
+  date: 2019-11-11
+  note: MyString
+  Pickup_time: 2019-11-11 14:44:30

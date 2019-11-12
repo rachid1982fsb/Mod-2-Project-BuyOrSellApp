@@ -1,0 +1,7 @@
+<h1>Product Name: <%= @item.name %></h1>
+Price :<%= @item.price %><br>
+<p> <%= image_tag @item.image_url, size: "150x150" %></p>
+condition: <%= @item.condition %><br>
+Product Description: <%= @item.description %><br>
+Location: <%= @item.location.city%> City,  <%= @item.location.state%><br>
+Quantity: <%= @item.quantity %><br>

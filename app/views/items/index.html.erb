@@ -1,0 +1,7 @@
+<h1>All Listing </h1>
+<% @items.each do |item|%>
+<h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
+<p> <%= image_tag item.image_url, size: "150x150" %></p>
+Price: <%= item.price %> $ <br>
+<% end %>
+

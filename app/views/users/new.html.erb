@@ -1,0 +1,16 @@
+<h1>Create A User Account</h1>
+<%= form_for @user do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %><br>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %><br>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %><br>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %><br>
+    <%= f.label :gender %><br>
+    <%= f.select :gender, options_for_select([ "M", "F","No Answer" ])%><br>
+    <%= f.submit %>
+   <% end %>
