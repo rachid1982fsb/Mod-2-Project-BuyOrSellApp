@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :boughts
-    has_many :items
+    has_many :boughts, :dependent => :destroy
+    has_many :items, :dependent => :destroy
     has_secure_password
 
     validates :user_name, presence: true, uniqueness: true

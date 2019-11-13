@@ -14,3 +14,10 @@
         Price: <%= item.price %> $ <br>
         Quantity: <%= item.quantity %><br>
     <% end %>
+
+<h2>Bought items </h2>
+    <% @user.boughts.each do |bought|%>
+         <h3>Product Name: <%= link_to bought.item.name,  item_path(bought.item) %></h3>
+         <p> <%= image_tag bought.item.image_url, size: "100x100" %></p>
+         Price: <%= bought.item.price %> $ <br>
+    <% end %>

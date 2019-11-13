@@ -7,10 +7,11 @@ class ItemsController < ApplicationController
     end
     
     def new
-        id = session[:user_id].to_i
-        @item=Item.new(user_id: id)
-        @item.location = Location.new 
-        cookies[:address]=User.find(id).address
+        @item = Item.new(user_id: current_user.id, address: current_user.address)
+        # id = session[:user_id].to_i
+        # @item=Item.new(user_id: id)
+        # # @item.location = Location.new 
+        # cookies[:address]=User.find(id).address
     end
 
     def create 
