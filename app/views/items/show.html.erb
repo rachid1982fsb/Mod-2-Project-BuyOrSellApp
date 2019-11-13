@@ -5,3 +5,12 @@ condition: <%= @item.condition %><br>
 Product Description: <%= @item.description %><br>
 Location: <%= @item.location.city%> City,  <%= @item.location.state%><br>
 Quantity: <%= @item.quantity %><br>
+<br>
+
+
+<% if current_user %>
+ <%= link_to 'Buy Now', items_buy_path %>
+ <% else %>
+ <%= "Login to be able to Buy" %>
+<% end %>
+

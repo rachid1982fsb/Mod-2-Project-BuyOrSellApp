@@ -1,13 +1,16 @@
 <h1>Welcome <%= @user.name %></h1>
-Name :<%= @user.name %><br>
-User Name: <%= @user.user_name %><br>
-Address :<%= @user.address%><br>
-Age: <%= @user.age %><br>
-Gender : <% if  @user.gender  == "M" %> <%= "Male" %><br> <% else %> <% Female %><% end %>
+
+    Name :<%= @user.name %><br>
+    User Name: <%= @user.user_name %><br>
+    Address :<%= @user.address%><br>
+    Age: <%= @user.age %><br>
+    Gender : <% if  @user.gender  == "M" %> <%= "Male" %><br> <% else %> <%= "Female" %><% end %>
+
 <h2>Active Listing </h2>
-<% @user.items.each do |item|%>
-<h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
-<p> <%= image_tag item.image_url, size: "150x150" %></p>
-Price: <%= item.price %> $ <br>
-Quantity: <%= item.quantity %><br>
-<% end %>
+
+    <% @user.items.each do |item|%>
+        <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
+        <p> <%= image_tag item.image_url, size: "150x150" %></p>
+        Price: <%= item.price %> $ <br>
+        Quantity: <%= item.quantity %><br>
+    <% end %>

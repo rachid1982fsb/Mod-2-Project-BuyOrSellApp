@@ -1,0 +1,10 @@
+<h2> "Congratilation " <%=  current_user.name %> " you are about to buy " <%=@buy.item.name %> </h2>
+<%= form_for @buy do |f| %>
+    Pickup Date<%= f.label :date %><br>
+    <%= f.date_field :date %><br>
+    Pickup Time: <%= f.label :Pickup_time %>:<br>
+    <%= f.time_field :Pickup_time %><br>
+    Note:  <%= f.label :note %>:<br>
+    <%= f.text_area :note %><br>
+    <%= f.submit %>
+<% end %>

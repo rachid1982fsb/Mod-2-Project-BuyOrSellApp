@@ -1,40 +1,62 @@
 class ItemsController < ApplicationController
+    # before_action :require_login
+    # skip_before_action :require_login, only: [:index]
+
     def index
         @items=Item.all
     end
     
     def new
-        @item=Item.new
+        id = session[:user_id].to_i
+        @item=Item.new(user_id: id)
         @item.location = Location.new 
-        cookies[:address]=User.last.address
-        
+        cookies[:address]=User.find(id).address
     end
 
     def create 
-        # byebug
         @item = Item.new(item_params) 
-        # @item.location=Location.find_or_create_by(city: params[:item][:locations][:city], state: params[:item][:locations][:state], zipcode: params[:item][:locations][:zipcode])
-        # @item.location.update(city: params[:item][:locations][:city], state: params[:item][:locations][:state], zipcode: params[:item][:locations][:zipcode])
-        # @item.location_attributes(params[:item][:locations])
         if @item.save
           redirect_to item_path(@item)
         else
-        #   @item = item.all
           render :new
         end
-   end
+    end
 
-      def show 
+    def show 
         @item = Item.find(params[:id])
-      end
+    end
 
-      private
-      def item_params
+    def edit
+         @item = Item.find(params[:id])
+    end
+
+    def update
+        @item = Item.find(params[:id])
+        @item.update(item_params)
+        if @item.save
+          redirect_to item_path(@item)
+        else
+          render :edit
+        end
+    end
+
+    def buy
+      @buy = Bought.new(item_id: 4)
+      
+    end
+
+    def buy_request
+    end
+
+  private
+  
+    # def require_login
+    #     return head(:forbidden) unless session.include? :user_id
+    # end
+
+    def item_params
         params.require(:item).permit(:name, :price, :condition,
          :description, :image_url, :address, :location_id, :quantity, :user_id)
-        #   locations_attributes: [
-        #       :city, :state, :Zipcode
-        #   ])
     end
 
 end

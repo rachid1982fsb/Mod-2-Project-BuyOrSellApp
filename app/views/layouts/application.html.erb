@@ -9,7 +9,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 <body>
-    <h1>Welcome To Buy Or Sell Store!</h1>
-    <%= yield %>    
+    <h1>Welcome To BOS Store!</h1>
+    <% if current_user %>
+    <%= "Logged in  as #{current_user.name}  " %>  | <%=  link_to "   View Account ", user_path(current_user) %> | <%=  link_to "   Edit Account ", edit_user_path(current_user) %> | <%= link_to 'Home', items_path %>  |  <%= link_to 'Log Out ', logout_path, method: :delete %><br>
+  <% else %>
+    <%= link_to 'Home', items_path %>  |  <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %><br>
+  <% end %>
+  <% if notice %>
+      	    <%= notice %>
+	<% end %>
+	
+	<% if alert %>
+      	    <%= alert %>
+  <% end %>
+  
+    <%= yield %>   
+    <div class="footer">
+    <p><%= link_to "All Listing ", items_path %> </p>
+  </div>  
 </body>
 </html>
