@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 	post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'  
   
-  post '/items/buy'   => 'items#buy_request'
-  get '/items/buy', to: "items#buy"
+  post '/boughts/bought'   => 'boughts#bought_request'
+  get '/boughts/bought', to: "boughts#bought"
   resources :items
   resources :users
 

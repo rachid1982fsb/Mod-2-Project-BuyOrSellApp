@@ -9,7 +9,7 @@ Quantity: <%= @item.quantity %><br>
 
 
 <% if current_user %>
- <%= link_to 'Buy Now', items_buy_path %>
+ <%= link_to 'Buy Now', boughts_bought_path %>
  <% else %>
  <%= "Login to be able to Buy" %>
 <% end %>

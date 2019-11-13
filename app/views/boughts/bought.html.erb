@@ -1,0 +1,12 @@
+<h2> Congratilation  <%=  current_user.name %>  you are about to buy  <%= @bought.item.name %> </h2>
+<%= form_for(@bought, url: boughts_bought_path) do |f| %>
+    Pickup Date<%= f.label :date %><br>
+    <%= f.date_field :date %><br>
+    Pickup Time: <%= f.label :Pickup_time %>:<br>
+    <%= f.time_field :Pickup_time %><br>
+    Note:  <%= f.label :note %>:<br>
+    <%= f.text_area :note %><br>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :item_id, :value => @bought.item.id %>
+    <%= f.submit %>
+<% end %>

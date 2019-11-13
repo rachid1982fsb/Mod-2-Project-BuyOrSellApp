@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
     def show 
         @item = Item.find(params[:id])
+        session[:item_id]= @item.id
     end
 
     def edit
@@ -38,14 +39,6 @@ class ItemsController < ApplicationController
         else
           render :edit
         end
-    end
-
-    def buy
-      @buy = Bought.new(item_id: 4)
-      
-    end
-
-    def buy_request
     end
 
   private
