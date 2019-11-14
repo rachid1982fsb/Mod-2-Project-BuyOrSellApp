@@ -10,13 +10,15 @@ Quantity: <%= @item.quantity %><br>
 
 <% if current_user %>
     <% if  current_user.id == @item.user.id && @item.status != "Sold" %>
-        <%= link_to "Edit your #{@item.name}", edit_item_path %>
+        <%= link_to "Edit", edit_item_path %>      |
+        <%= link_to 'Delete',  @item,  method: :delete, data: { confirm: 'Are you sure?' } %>
+        
     <% elsif @item.status != "Sold"   %>
-        <%= link_to 'Buy Now', boughts_bought_path %>
+        <%= link_to 'Buy Now', boughts_bought_path %><br>
     <% elsif current_user.id != @item.user.id && @item.status == "Sold"  %> 
         <p>You bought this Product from  <%= @item.user.name %></p>
     <% end %>
 <% else %>
-    <%= "Login to be able to Buy" %>
+    <%= "SignUp Or Login to be able to Buy" %>
 <% end %>
 

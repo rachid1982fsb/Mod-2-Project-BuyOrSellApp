@@ -1,32 +1,42 @@
+<ul>
+<% @item.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+<fieldset>
+<legend><h3>Product Details</h3></legend>
+
 <%= form_for @item do |f| %>
     <%= f.label :location_id %><br>
     <%= f.collection_select :location_id, Location.all, :id, :city_zipcode %> <br>
-
+    <br>
     Product <%= f.label :name %>:<br>
     <%= f.text_field :name %><br>
-
+    <br>
     <%= f.label :price %><br>
     <%= f.number_field :price %><br>
-
+    <br>
     <%= f.label :condition %><br>
     <%=  f.select :condition, options_for_select([ "New", "Like New","Used","Fair","Poor" ])%><br>
-
+    <br>
     <%= f.label :description %><br>
     <%= f.text_area :description %><br>
-
+    <br>
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url %><br>
-
+    <br>
     <%= f.label :address %><br>
     <%= f.text_field :address, value: cookies[:address] %><br>
-
+    <br>
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %><br>
-
+    <br>
     <%= f.label :status %><br>
     <%=  f.select :status, options_for_select([ "Active", "Unactive"])%><br>
-    
+    <br>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-
+    
     <%= f.submit %>
 <% end %>
+</fieldset>

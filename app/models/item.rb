@@ -5,6 +5,7 @@ class Item < ApplicationRecord
     
     validates :name, presence: true
     validates :price, presence: true
+    validates :image_url, presence: true
 
     def location_attributes=(location)
         self.location = Location.find_or_create_by(zipcode: location[:zipcode] )

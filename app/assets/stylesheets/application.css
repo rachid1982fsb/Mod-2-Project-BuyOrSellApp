@@ -13,19 +13,9 @@
  *= require_tree .
  *= require_self
  */
- .parent {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-column-gap: 2px;
-    grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 5; }
-    .div2 { grid-area: 2 / 1 / 4 / 9; }
-    .div3 { grid-area: 2 / 1 / 4 / 3; }
-    .div4 { grid-area: 2 / 3 / 4 / 4; }
-    .div5 { grid-area: 2 / 4 / 4 / 5; }
-    .div6 { grid-area: 2 / 5 / 4 / 6; }
-    .div7 { grid-area: 2 / 6 / 4 / 7; }
-    .div8 { grid-area: 2 / 7 / 4 / 8; }
+ #location_location_id {
+    font-size: x-large;
+}
+.button{
+    font-size: x-large;
+}

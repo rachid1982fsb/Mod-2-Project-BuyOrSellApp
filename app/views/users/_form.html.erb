@@ -4,26 +4,31 @@
 <% end %>
 </ul>
 
+<fieldset>
+<legend><h3>User Details</h3></legend>
+
 <%= form_for @user do |f| %>
-    <%= f.label :name %><br>
+    <%= f.label :name %>:<br>
     <%= f.text_field :name %><br>
-
-    <%= f.label :user_name %><br>
+    <br>
+    <%= f.label :user_name %>:<br>
     <%= f.text_field :user_name %><br>
-
-    <%= f.label :password %><br>
+    <br>
+    <%= f.label :password %>:<br>
     <%= f.text_field :password %><br>
-
-    <%= f.label :password_confirmation %><br>
+    <br>
+    <%= f.label :password_confirmation %>:<br>
     <%= f.text_field :password_confirmation %><br>
-
-    <%= f.label :address %><br>
+    <br>
+    <%= f.label :address %>:<br>
     <%= f.text_field :address %><br>
-
-    <%= f.label :age %><br>
+    <br>
+    <%= f.label :age %>:<br>
     <%= f.number_field :age %><br>
-    
-    <%= f.label :gender %><br>
+    <br>
+    <%= f.label :gender %>:<br>
     <%= f.select :gender, options_for_select([ "M", "F","No Answer" ])%><br>
+    <br>
     <%= f.submit %>
    <% end %>
+  </fieldset>

@@ -8,10 +8,6 @@ class ItemsController < ApplicationController
     
     def new
         @item = Item.new(user_id: current_user.id, address: current_user.address)
-        # id = session[:user_id].to_i
-        # @item=Item.new(user_id: id)
-        # # @item.location = Location.new 
-        # cookies[:address]=User.find(id).address
     end
 
     def create 
@@ -42,6 +38,14 @@ class ItemsController < ApplicationController
         end
     end
 
+    def destroy
+      @item = Item.find(params[:id])
+      @item.destroy
+      flash[:message] = "Item deleted."
+      redirect_to items_path
+
+    end
+
     def by_location
       # byebug
       @items = Item.items_by_location(params[:location][:location_id].to_i)
@@ -57,7 +61,7 @@ class ItemsController < ApplicationController
 
     def item_params
         params.require(:item).permit(:name, :price, :condition,
-         :description, :image_url, :address, :location_id, :quantity, :user_id)
+         :description, :image_url, :address, :location_id, :quantity, :user_id, :status)
     end
 
 end

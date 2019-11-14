@@ -1,12 +1,15 @@
 <h1>Welcome <%= @user.name %></h1>
-
+<fieldset>
+<legend>User </legend>
     Name :<%= @user.name %><br>
     User Name: <%= @user.user_name %><br>
     Address :<%= @user.address%><br>
     Age: <%= @user.age %><br>
     Gender : <% if  @user.gender  == "M" %> <%= "Male" %><br> <% else %> <%= "Female" %><% end %>
+</fieldset>
 
-<h2>Active Listing </h2>
+<fieldset>
+<legend><h2>Active Listing </h2> </legend>
 
     <% @user.items.each do |item|%>
         <% if item.status == "Active" %>
@@ -14,12 +17,12 @@
             <p> <%= image_tag item.image_url, size: "150x150" %></p>
             Price: <%= item.price %> $ <br>
             Quantity: <%= item.quantity %><br>
-        <% else %>
-            0
         <% end %>
     <% end %>
+</fieldset>
 
-<h2>Deactived And Sold Listing </h2>
+<fieldset>
+<legend><h2>Deactived And Sold Listing </h2></legend>
 
     <% @user.items.each do |item|%>
         <% if item.status != "Active" %>
@@ -28,14 +31,16 @@
             Price: <%= item.price %> $ <br>
         <% end %>
     <% end %>
-    
+</fieldset>
 
-<h2>Bought items </h2>
+<fieldset>
+<legend><h2>Bought items </h2></legend>
+
     <% @user.boughts.each do |bought|%>
          <h3>Product Name: <%= link_to bought.item.name,  item_path(bought.item) %></h3>
          <p> <%= image_tag bought.item.image_url, size: "100x100" %></p>
          Price: <%= bought.item.price %> $ <br>
     <% end %>
 
-
+</fieldset>
 
