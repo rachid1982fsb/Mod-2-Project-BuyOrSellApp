@@ -9,10 +9,12 @@ Quantity: <%= @item.quantity %><br>
 
 
 <% if current_user %>
-    <% if  current_user.id == @item.user.id %>
+    <% if  current_user.id == @item.user.id && @item.status != "Sold" %>
         <%= link_to "Edit your #{@item.name}", edit_item_path %>
-    <% else %>
+    <% elsif @item.status != "Sold"   %>
         <%= link_to 'Buy Now', boughts_bought_path %>
+    <% elsif current_user.id != @item.user.id && @item.status == "Sold"  %> 
+        <p>You bought this Product from  <%= @item.user.name %></p>
     <% end %>
 <% else %>
     <%= "Login to be able to Buy" %>

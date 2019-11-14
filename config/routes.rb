@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/boughts/bought', to:'boughts#bought_request'
   get '/boughts/bought', to: "boughts#bought"
 
-  post '/items', to:'items#by_location' 
+  post '/items/location', to:'items#by_location' 
   resources :items
   resources :users
 

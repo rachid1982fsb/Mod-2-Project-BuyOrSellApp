@@ -1,6 +1,6 @@
 <h1>All Listing </h1>
 
-<%= form_tag items_path do %>
+<%= form_tag items_location_path do %>
     <%= collection_select :location, :location_id, Location.all, :id, :city_zipcode %>
     <%= submit_tag "search by location" %>
 <% end %>
