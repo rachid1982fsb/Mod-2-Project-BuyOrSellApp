@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root to: 'items#index'
-	get '/login'     => 'sessions#new'
-	post '/login'    => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'  
+	get '/login', to:'sessions#new'
+	post '/login', to:'sessions#create'
+  delete '/logout', to:'sessions#destroy'  
   
-  post '/boughts/bought'   => 'boughts#bought_request'
+  post '/boughts/bought', to:'boughts#bought_request'
   get '/boughts/bought', to: "boughts#bought"
+
+  post '/items', to:'items#by_location' 
   resources :items
   resources :users
 

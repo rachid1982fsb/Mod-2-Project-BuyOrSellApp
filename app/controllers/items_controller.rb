@@ -42,6 +42,13 @@ class ItemsController < ApplicationController
         end
     end
 
+    def by_location
+      # byebug
+      @items = Item.items_by_location(params[:location][:location_id].to_i)
+      render :index
+    end
+
+
   private
   
     # def require_login

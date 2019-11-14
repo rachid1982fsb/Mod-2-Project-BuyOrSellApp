@@ -23,8 +23,10 @@
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %><br>
 
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %><br>
+    <%= f.label :status %><br>
+    <%=  f.select :status, options_for_select([ "Active", "Unactive"])%><br>
     
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
     <%= f.submit %>
 <% end %>

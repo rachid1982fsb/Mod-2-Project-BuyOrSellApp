@@ -10,6 +10,7 @@
   </head>
 <body>
     <h1>Welcome To BOS Store!</h1>
+    <%= flash[:message] %> <br>
     <% if current_user %>
     <%= "Logged in  as #{current_user.name}  " %>  | <%= link_to "Create A Listing ", new_item_path %>| <%=  link_to "  View Account ", user_path(current_user) %> | <%=  link_to "   Edit Account ", edit_user_path(current_user) %> | <%= link_to 'Home', items_path %>  |  <%= link_to 'Log Out ', logout_path, method: :delete %><br>
   <% else %>

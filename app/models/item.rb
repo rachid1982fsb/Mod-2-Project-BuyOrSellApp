@@ -10,4 +10,8 @@ class Item < ApplicationRecord
         self.location = Location.find_or_create_by(zipcode: location[:zipcode] )
         self.location.update(location)
     end
+
+    def self.items_by_location(id)
+        items = Item.all.select{|item| item.location_id == id}
+    end
 end
