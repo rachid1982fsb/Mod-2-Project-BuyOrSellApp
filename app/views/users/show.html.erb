@@ -10,37 +10,45 @@
 
 <fieldset>
 <legend><h2>Active Listing </h2> </legend>
-
+<div class="wrapper">
     <% @user.items.each do |item|%>
         <% if item.status == "Active" %>
+        <div>
             <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
             <p> <%= image_tag item.image_url, size: "150x150" %></p>
             Price: <%= item.price %> $ <br>
-            Quantity: <%= item.quantity %><br>
+            Quantity: <%= item.quantity %><br><br>
+            </div>
         <% end %>
     <% end %>
+</div>    
 </fieldset>
 
 <fieldset>
 <legend><h2>Deactived And Sold Listing </h2></legend>
-
+<div class="wrapper">
     <% @user.items.each do |item|%>
         <% if item.status != "Active" %>
+        <div>
             <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
             <p> <%= image_tag item.image_url, size: "100x100" %></p>
-            Price: <%= item.price %> $ <br>
+            Price: <%= item.price %> $ <br><br>
+            </div>
         <% end %>
     <% end %>
+</div>
 </fieldset>
 
 <fieldset>
 <legend><h2>Bought items </h2></legend>
-
+<div class="wrapper">
     <% @user.boughts.each do |bought|%>
+        <div>
          <h3>Product Name: <%= link_to bought.item.name,  item_path(bought.item) %></h3>
          <p> <%= image_tag bought.item.image_url, size: "100x100" %></p>
-         Price: <%= bought.item.price %> $ <br>
+         Price: <%= bought.item.price %> $ <br><br>
+         </div>
     <% end %>
-
+</div>
 </fieldset>
 

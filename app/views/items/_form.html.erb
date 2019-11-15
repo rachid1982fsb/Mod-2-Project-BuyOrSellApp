@@ -27,7 +27,7 @@
     <%= f.text_field :image_url %><br>
     <br>
     <%= f.label :address %><br>
-    <%= f.text_field :address, value: cookies[:address] %><br>
+    <%= f.text_field :address, value: current_user.address %><br>
     <br>
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %><br>

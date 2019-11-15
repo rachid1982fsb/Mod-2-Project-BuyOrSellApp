@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
       @item.destroy
       flash[:message] = "Item deleted."
       redirect_to items_path
-
     end
 
     def by_location
