@@ -25,14 +25,32 @@
 </fieldset>
 
 <fieldset>
-<legend><h2>Deactived And Sold Listing </h2></legend>
+<legend><h2>Inactive Listing </h2></legend>
 <div class="wrapper">
     <% @user.items.each do |item|%>
-        <% if item.status != "Active" %>
+        <% if item.status == "Unactive" %>
         <div>
             <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
             <p> <%= image_tag item.image_url, size: "100x100" %></p>
             Price: <%= item.price %> $ <br><br>
+            </div>
+        <% end %>
+    <% end %>
+</div>
+</fieldset>
+
+<fieldset>
+<legend><h2>Sold Listing </h2></legend>
+<div class="wrapper">
+    <% @user.items.each do |item|%>
+        <% if item.status == "Sold" %>
+        <div>
+            <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
+            <p> <%= image_tag item.image_url, size: "100x100" %></p>
+            Price: <%= item.price %> $ <br><br>
+            Date: <%= item.bought.date %> $ <br>
+            Pickup Time: <%= item.bought.Pickup_time %> $ <br><br>
+            Note: <%= item.bought.note %> $ <br><br><br>
             </div>
         <% end %>
     <% end %>
