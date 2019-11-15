@@ -1,23 +1,23 @@
 
 <br>
 <div style="text-align:center;font-size: x-large;">
-<%= form_tag items_location_path do %>
-    <%= collection_select :location, :location_id, Location.all, :id, :city_zipcode %>
-    <%= submit_tag "search by location" , class: 'button'%>
-<% end %>
+    <%= form_tag items_location_path do %>
+        <%= collection_select :location, :location_id, Location.all, :id, :city_zipcode %>
+        <%= submit_tag "search by location" , class: 'button'%>
+    <% end %>
 </div>
 <fieldset>
 <legend><h1>All Listing</h1></legend>
 
 <div class="wrapper">
-<% @items.each do |item|%>
-    <% if item.status == "Active" %>
-    <div>
-        <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
-        <p> <%= image_tag item.image_url, size: "150x150" %></p>
-        Price: <%= item.price %> $ <br><br>
-    </div>
+    <% @items.each do |item|%>
+         <% if item.status == "Active" %>
+        <div>
+            <h3>Product Name: <%= link_to item.name,  item_path(item) %></h3>
+            <p> <%= image_tag item.image_url, size: "150x150" %></p>
+            Price: <%= item.price %> $ <br><br>
+         </div>
+        <% end %>
     <% end %>
-<% end %>
 </div>
 </fieldset>

@@ -1,10 +1,12 @@
-<h1>Product Name: <%= @item.name %></h1>
-Price :<%= @item.price %><br>
-<p> <%= image_tag @item.image_url, size: "150x150" %></p>
-condition: <%= @item.condition %><br>
-Product Description: <%= @item.description %><br>
-Location: <%= @item.location.city%> City,  <%= @item.location.state%><br>
-Quantity: <%= @item.quantity %><br>
+<div>
+    <h1>Product Name: <%= @item.name %></h1>
+    Price :<%= @item.price %><br>
+    <p> <%= image_tag @item.image_url, size: "150x150" %></p>
+    condition: <%= @item.condition %><br>
+    Product Description: <%= @item.description %><br>
+    Location: <%= @item.location.city%> City,  <%= @item.location.state%><br>
+    Quantity: <%= @item.quantity %><br>
+</div>
 <br>
 
 
@@ -15,8 +17,10 @@ Quantity: <%= @item.quantity %><br>
         
     <% elsif @item.status != "Sold"   %>
         <%= link_to 'Buy Now', boughts_bought_path %><br>
+
     <% elsif current_user.id != @item.user.id && @item.status == "Sold"  %> 
         <p>You bought this Product from  <%= @item.user.name %></p>
+        
     <% end %>
 <% else %>
     <%= "SignUp Or Login to be able to Buy" %>

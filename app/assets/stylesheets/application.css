@@ -24,3 +24,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
   }
+  .wrapp {
+    display: grid;
+    background-color:CadetBlue;
+    color:black;
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }

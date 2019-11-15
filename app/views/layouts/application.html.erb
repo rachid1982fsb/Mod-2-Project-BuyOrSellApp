@@ -9,9 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 <body>
-    <div style="background-color:lightgry;"><h1 style="color:blue;text-align:center"> Welcome To BOSS - Buy Or Sell Store! </h1></div>
-    <%= flash[:message] %> <br>
-    <div style="background-color:lightblue;text-align:center;font-size: x-large;">
+    <div class="wrapp"><h1> Welcome To BOSS - Buy Or Sell Store! </h1></div>
+    <%= flash[:message] %>
+    <div style="background-color:LightCyan;text-align:center;font-size: x-large;">
     <% if current_user %>
     <%= "Logged in  as #{current_user.name}  " %>  | 
     <%= link_to "Create A Listing ", new_item_path %> | 

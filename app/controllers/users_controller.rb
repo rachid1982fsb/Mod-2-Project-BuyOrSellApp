@@ -15,13 +15,11 @@ class UsersController < ApplicationController
           session[:user_id]=@user.id
           redirect_to user_path(@user)
         else
-        #   @user = user.all
           render :new
         end
     end
 
     def edit
-
       @user = User.find(params[:id])
     end
 
@@ -33,7 +31,6 @@ class UsersController < ApplicationController
       else
         render :edit
       end
-
     end
 
     def show 
@@ -48,7 +45,8 @@ class UsersController < ApplicationController
 
   private
     def user_params
-        params.require(:user).permit(:name, :user_name, :address, :age, :gender,:password, :password_confirmation )
+        params.require(:user).permit(:name, :user_name, :address, :age, :gender, 
+        :password, :password_confirmation )
     end
 
 end
