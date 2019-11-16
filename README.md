@@ -59,8 +59,10 @@ This README would normally document whatever steps are necessary to get the appl
 # Install Instructions
 
 	Run bundle install in console to insure you have all the required gems.
+	
+	Run 'yarn install --check-files' in console 
 
-	Run rails db:migrate  in console to create the schema.
+	Run rails db:migrate in console to create the schema.
 
 	Run rails s in the console to start the web application.
 
