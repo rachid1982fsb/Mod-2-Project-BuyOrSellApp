@@ -1,24 +1,107 @@
 # README
+This README would normally document whatever steps are necessary to get the application up and running.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# MOD 2 Project Buy Or Sell Store-BOSS Rachid Rakaa
 
-* Ruby version
+	BOSS: Website for selling & buying items.
+	List items by locations.
+	User can sell new or used product.
+	User can request to buy a product.
+	Seller receive a buy request from the buyer.
 
-* System dependencies
+# Schema
+```
+   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "user_name"
+    t.string "password_digest"
+    t.string "address"
+    t.integer "age"
+    t.string "gender"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+  create_table "boughts", force: :cascade do |t|
+    t.string "user_id"
+    t.string "item_id"
+    t.date "date"
+    t.string "note"
+    t.time "Pickup_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-* Configuration
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "condition"
+    t.string "description"
+    t.integer "location_id"
+    t.string "image_url"
+    t.string "address"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "status"
+  end
 
-* Database creation
+  create_table "locations", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.integer "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+```  
 
-* Database initialization
+# Install Instructions
 
-* How to run the test suite
+	Run bundle install in console to insure you have all the required gems.
 
-* Services (job queues, cache servers, search engines, etc.)
+	Run rails db:migrate  in console to create the schema.
 
-* Deployment instructions
+	Run rails s in the console to start the web application.
 
-* ...
+
+# User Stories
+
+	#Create an account.
+   		Unique Username.
+    	Some information  are required.
+   		Greeting, login, redirect to profile.
+    
+	#Login & logout 
+  	  	Username and password must be correct.
+   	 	Show a message if login or logout.
+   	 	Show a message if incorrect login
+    	redirect to profile.
+    
+	#User Profile include:
+   		 User info.
+    	Active listings.
+    	Inactive  and Sold listings.
+    	Bought items.
+    
+	#User can:
+    	View Account.
+   		 Edit  Account.
+   		 Create a listing.
+   		 Login and logout
+   		 Select any item in the homepage
+   		 Can not edit or delete any item not belongs to him/her.
+   		 Send a request to buy include
+      		 Pickup Time
+       		 Date 
+       		 Pre-Filed note with item location 
+        
+	#listing:
+  		 Create listing must include:
+       		 Location, name,  price and image.
+    	 Listing can be edited.
+    	 The status of listing can be switch between  active & inactive.
+    	 Sold & inactive items removed from the list of products.
+
+# License
+https://opensource.org/licenses/MIT
