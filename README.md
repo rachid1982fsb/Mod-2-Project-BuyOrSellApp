@@ -63,6 +63,8 @@ This README would normally document whatever steps are necessary to get the appl
 	Run 'yarn install --check-files' in console 
 
 	Run rails db:migrate in console to create the schema.
+	
+	Run rails db:seed in console
 
 	Run rails s in the console to start the web application.
 
