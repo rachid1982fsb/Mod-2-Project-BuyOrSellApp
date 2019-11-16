@@ -102,6 +102,7 @@ This README would normally document whatever steps are necessary to get the appl
     	 Listing can be edited.
     	 The status of listing can be switch between  active & inactive.
     	 Sold & inactive items removed from the list of products.
-
+# Contributing
+   Contributions are welcome. Feel free to open a pull request or branch from this project.
 # License
 https://opensource.org/licenses/MIT
