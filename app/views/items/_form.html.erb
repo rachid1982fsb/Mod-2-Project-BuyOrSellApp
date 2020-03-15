@@ -12,22 +12,22 @@
     <%= f.collection_select :location_id, Location.all, :id, :city_zipcode %> <br>
     <br>
     Product <%= f.label :name %>:<br>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name , placeholder: 'Name' , :size => "25x30" %><br>
     <br>
     <%= f.label :price %><br>
-    <%= f.number_field :price %><br>
+    <%= f.number_field :price , placeholder: 'Price' %><br>
     <br>
     <%= f.label :condition %><br>
     <%=  f.select :condition, options_for_select([ "New", "Like New","Used","Fair","Poor" ])%><br>
     <br>
     <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
+    <%= f.text_area :description , :size => "50x10"%><br>
     <br>
     <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %><br>
+    <%= f.text_field :image_url , placeholder: 'URL' %><br>
     <br>
     <%= f.label :address %><br>
-    <%= f.text_field :address, value: current_user.address %><br>
+    <%= f.text_field :address, value: current_user.address , :size => "50x30" %><br>
     <br>
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %><br>
