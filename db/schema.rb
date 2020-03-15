@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_212059) do
+ActiveRecord::Schema.define(version: 2019_12_02_215934) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "boughts", force: :cascade do |t|
     t.string "user_id"
@@ -18,6 +21,13 @@ ActiveRecord::Schema.define(version: 2019_11_13_212059) do
     t.date "date"
     t.string "note"
     t.time "Pickup_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "user_search_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,6 +51,19 @@ ActiveRecord::Schema.define(version: 2019_11_13_212059) do
     t.string "city"
     t.string "state"
     t.integer "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_searches", force: :cascade do |t|
+    t.string "reddit_username"
+    t.string "top_listing_name"
+    t.integer "top_listing_likes"
+    t.string "top_listing_link"
+    t.string "fav_sub_name"
+    t.string "most_children_name"
+    t.integer "Most_children_likes"
+    t.string "most_children_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
